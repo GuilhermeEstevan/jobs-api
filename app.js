@@ -18,7 +18,7 @@ import errorHandlerMiddleware from './middleware/error-handler.js';
 // extra security packages
 import helmet from 'helmet';
 import cors from 'cors'
-import xss from 'express-xss-sanitizer';
+import { xss } from 'express-xss-sanitizer';
 import rateLimiter from 'express-rate-limit';
 
 app.set('trust proxy', 1)
