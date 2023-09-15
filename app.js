@@ -25,7 +25,7 @@ app.set('trust proxy', 1)
 app.use(express.json());
 app.use(
   cors({
-    origin: 'https://eloquent-lolly-2b5aed.netlify.app',
+    origin: 'https://jobster-guilherme.netlify.app',
     optionsSuccessStatus: 200
   })
 )
