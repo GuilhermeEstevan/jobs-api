@@ -23,11 +23,11 @@ import { xss } from 'express-xss-sanitizer';
 app.set('trust proxy', 1)
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: 'http://localhost:5000'
-  })
-)
+// app.use(
+//   cors({
+//     origin: 'http://localhost:5000'
+//   })
+// )
 
 app.use(helmet())
 app.use(xss())
