@@ -8,8 +8,13 @@ export const register = async (req, res) => {
     const token = user.createJWT()
 
     res.status(StatusCodes.CREATED).json({
-        user: { name: user.name },
-        token
+        user: {
+            email: user.email,
+            lastName: user.lastName,
+            location: user.location,
+            name: user.name,
+            token
+        }
     })
 }
 
@@ -33,7 +38,41 @@ export const login = async (req, res) => {
 
     const token = user.createJWT()
     res.status(StatusCodes.OK).json({
-        user: { name: user.name },
-        token
+        user: {
+            email: user.email,
+            lastName: user.lastName,
+            location: user.location,
+            name: user.name,
+            token
+        }
     })
+}
+
+export const updateUser = async (req, res) => {
+    const { name, lastName, email, location } = req.body
+    
+    if (!name || !lastName || !email || !location) {
+        throw new BadRequestError('Please provide all values')
+    }
+    const user = await User.findOne({ _id: req.user.userId })
+
+    user.name = name
+    user.lastName = lastName
+    user.email = email
+    user.location = location
+
+    await user.save()
+    const token = user.createJWT()
+
+    res.status(StatusCodes.OK).json({
+        user: {
+            email: user.email,
+            lastName: user.lastName,
+            location: user.location,
+            name: user.name,
+            token
+        }
+    })
+    // console.log(req.user);
+    // console.log(req.body);
 }

@@ -3,7 +3,7 @@ dotenv.config();
 import 'express-async-errors';
 import express, { json } from 'express';
 const app = express();
-
+import cors from 'cors'
 // connectDB
 import connectDB from './db/connect.js';
 import authenticateUser from './middleware/authentication.js'
@@ -15,13 +15,20 @@ import jobsRouter from './routes/jobs.js'
 import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 
+
+
 // extra security packages
 import helmet from 'helmet';
 import { xss } from 'express-xss-sanitizer';
-
-
+app.set('trust proxy', 1)
 
 app.use(express.json());
+app.use(
+  cors({
+    origin: 'http://localhost:5000'
+  })
+)
+
 app.use(helmet())
 app.use(xss())
 
