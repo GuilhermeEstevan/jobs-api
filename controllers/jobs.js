@@ -163,7 +163,6 @@ export const showStats = async (req, res) => {
     }).reverse()
 
 
-    
 
     res.status(StatusCodes.OK).json({
         defaultStats,
