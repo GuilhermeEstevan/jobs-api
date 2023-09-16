@@ -35,7 +35,7 @@ Todos os pontos de extremidade, exceto o registro de usuário e o login de usuá
 
 ## Registro de Usuário
 
-- **Rota:** `post /api/v1/auth/register`
+- **Rota:** `POST /api/v1/auth/register`
 
 Registra um novo usuário.
 
