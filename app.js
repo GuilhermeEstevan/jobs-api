@@ -33,13 +33,13 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      'https://temp-jobs-api-ogq6.onrender.com/',
-      "https://jobster-guilherme.netlify.app/",
-      "http://localhost:3000"
+      'https://temp-jobs-api-ogq6.onrender.com',
+      'https://jobster-guilherme.netlify.app',
+      'http://localhost:3000'
     ],
     optionsSuccessStatus: 200
   })
-)
+);
 
 app.use(helmet())
 app.use(xss())
