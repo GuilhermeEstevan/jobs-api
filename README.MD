@@ -63,3 +63,22 @@ Corpo da Solicitação:
   "password": "password123"
 }
 ```
+
+### Atualizar Usuário
+
+- **Rota:** `PATCH /api/v1/auth/updateUser`
+- **Descrição:** Atualiza informações do usuário, incluindo nome, sobrenome, email e localização. Esta rota requer autenticação. Por favor, forneça um token JWT válido no cabeçalho 'Authorization'.
+
+
+#### Corpo da Solicitação
+
+```json
+{
+  "name": "Novo Nome",
+  "lastName": "Novo Sobrenome",
+  "email": "novoemail@example.com",
+  "location": "Nova Localização"
+}
+
+
+
