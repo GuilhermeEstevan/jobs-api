@@ -1,9 +1,8 @@
 
 # API do Backend do Jobster
 
-![Logotipo do Jobster](link_para_o_logo.png)
 
-Esta é a API oficial do backend para o site Jobster. Ela fornece vários pontos de extremidade para registro de usuário, autenticação, gerenciamento de postagens de empregos e recuperação de estatísticas de empregos.
+Esta é a API do backend para o site Jobster. Ela fornece vários pontos de extremidade para registro de usuário, autenticação, gerenciamento de cadastro de empregos e recuperação de estatísticas de empregos.
 
 ## Tabela de Conteúdo
 
