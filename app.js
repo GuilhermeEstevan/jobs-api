@@ -21,7 +21,7 @@ import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express'
 const jsonSwagger = JSON.parse(await readFile('./swagger.json', 'utf8'));
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(jsonSwagger))
+app.use('/', swaggerUi.serve, swaggerUi.setup(jsonSwagger))
 
 // extra security packages
 import helmet from 'helmet';
