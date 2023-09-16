@@ -81,4 +81,41 @@ Corpo da Solicitação:
 }
 ```
 
+# Jobs
+
+Esta seção descreve as rotas relacionadas a trabalhos (jobs) disponíveis na API.
+
+## Obter Todos os Empregos
+
+- **Rota:** `GET /api/v1/jobs`
+- **Descrição:** Recupera uma lista de todos os empregos. Você pode filtrar e paginar os resultados.
+
+#### Parâmetros da Solicitação
+
+- `status` (opcional): Filtra empregos por status ('all', 'pending', 'declined', 'interview').
+- `jobType` (opcional): Filtra empregos por tipo ('all' ou um tipo de emprego específico).
+- `sort` (opcional): Ordena empregos por ('mais recentes', 'mais antigos', 'a-z', 'z-a').
+- `search` (opcional): Pesquisa empregos por posição.
+- `page` (opcional): Número da página para paginação.
+- `limit` (opcional): Número de itens por página.
+
+#### Respostas
+
+- **200:** Lista de empregos com informações de paginação.
+- **400:** Solicitação inválida. Parâmetros de consulta inválidos.
+- **401:** Não autorizado. A autenticação falhou.
+
+## Criar um Novo Emprego
+
+- **Rota:** `POST /api/v1/jobs`
+- **Descrição:** Cria uma nova postagem de emprego.
+
+#### Corpo da Solicitação
+
+```json
+{
+  "company": "Exemplo S.A.",
+  "position": "Engenheiro de Software",
+  "status": "pendente"
+}
 
