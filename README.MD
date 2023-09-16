@@ -48,3 +48,18 @@ Corpo da Solicitação:
   "password": "password123"
 }
 ```
+
+## Login de Usuário
+
+### POST /api/v1/auth/login
+
+Login no usuário.
+
+Corpo da Solicitação:
+
+```json
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+```
