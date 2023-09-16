@@ -16,14 +16,12 @@ import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 
 // Swagger
+import { readFile } from 'fs/promises';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express'
-import swaggerFile from './swagger.json' assert {type: 'json'};
+const jsonSwagger = JSON.parse(await readFile('./swagger.json', 'utf8'));
 
-
-
-
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(jsonSwagger))
 
 // extra security packages
 import helmet from 'helmet';
