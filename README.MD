@@ -35,7 +35,7 @@ Todos os pontos de extremidade, exceto o registro de usuário e o login de usuá
 
 ## Registro de Usuário
 
-### POST /api/v1/auth/register
+- **Rota:** `post /api/v1/auth/register`
 
 Registra um novo usuário.
 
@@ -51,7 +51,7 @@ Corpo da Solicitação:
 
 ## Login de Usuário
 
-### POST /api/v1/auth/login
+- **Rota:** `POST /api/v1/auth/login`
 
 Login no usuário.
 
