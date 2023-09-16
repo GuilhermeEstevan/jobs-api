@@ -1,0 +1,395 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Jobster Documentation",
+        "description": "This is an API for Jobster website",
+        "version": "1.0.0",
+        "contact": {
+            "email": "guilhermeestevangui@hotmail.com"
+        }
+    },
+    "paths": {
+        "/api/v1/auth/register": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Register a new user",
+                "description": "Create a new user account.",
+                "requestBody": {
+                    "description": "User information for registration.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "User's name."
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "description": "User's email address."
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "description": "User's password."
+                                    }
+                                },
+                                "example": {
+                                    "name": "John Doe",
+                                    "email": "john@example.com",
+                                    "password": "password123"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "User created successfully."
+                    },
+                    "400": {
+                        "description": "Bad request. Invalid data or duplicate email."
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "User login",
+                "description": "Authenticate a user.",
+                "requestBody": {
+                    "description": "User credentials for authentication.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "description": "User's email address."
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "description": "User's password."
+                                    }
+                                },
+                                "example": {
+                                    "email": "john@example.com",
+                                    "password": "password123"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login successful."
+                    },
+                    "401": {
+                        "description": "Unauthorized. Invalid credentials."
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/updateUser": {
+            "patch": {
+                "tags": [
+                    "Update User"
+                ],
+                "summary": "Update user information",
+                "description": "Update user information including name, lastName, email, and location. This endpoint requires authentication. Please provide a valid JWT token in the 'Authorization' header.",
+                "responses": {
+                    "200": {
+                        "description": "User information updated successfully."
+                    },
+                    "400": {
+                        "description": "Bad request. Invalid data or missing values."
+                    }
+                },
+                "x-servers": "none"
+            }
+        },
+        "/api/v1/jobs": {
+            "get": {
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "Get all jobs",
+                "description": "Retrieve a list of all jobs. You can filter and paginate the results.",
+                "parameters": [
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Filter jobs by status ('all', 'pending', 'declined', 'interview')",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "all",
+                                "pending",
+                                "declined",
+                                "interview"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "jobType",
+                        "in": "query",
+                        "description": "Filter jobs by type ('all' or specific job type)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sort jobs by ('latest', 'oldest', 'a-z', 'z-a')",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "latest",
+                                "oldest",
+                                "a-z",
+                                "z-a"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search for jobs by position",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number for pagination",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Number of items per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of jobs with pagination information."
+                    },
+                    "400": {
+                        "description": "Bad request. Invalid query parameters."
+                    },
+                    "401": {
+                        "description": "Unauthorized. Authentication failed."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "Create a new job",
+                "description": "Create a new job posting.",
+                "requestBody": {
+                    "description": "Job information for creation.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "company": {
+                                        "type": "string",
+                                        "description": "Company name."
+                                    },
+                                    "position": {
+                                        "type": "string",
+                                        "description": "Job position."
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "description": "Job status ('pending', 'declined', 'interview')."
+                                    }
+                                },
+                                "example": {
+                                    "company": "Example Inc.",
+                                    "position": "Software Engineer",
+                                    "status": "pending"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Job created successfully."
+                    },
+                    "400": {
+                        "description": "Bad request. Invalid data or missing values."
+                    },
+                    "401": {
+                        "description": "Unauthorized. Authentication failed."
+                    }
+                }
+            }
+        },
+        "/api/v1/jobs/stats": {
+            "get": {
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "Get job statistics",
+                "description": "Retrieve statistics about job postings.",
+                "responses": {
+                    "200": {
+                        "description": "Job statistics."
+                    },
+                    "401": {
+                        "description": "Unauthorized. Authentication failed."
+                    }
+                }
+            }
+        },
+        "/api/v1/jobs/{id}": {
+            "get": {
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "Get a job by ID",
+                "description": "Retrieve a job by its unique ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Job ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Job details."
+                    },
+                    "404": {
+                        "description": "Job not found."
+                    },
+                    "401": {
+                        "description": "Unauthorized. Authentication failed."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "Delete a job by ID",
+                "description": "Delete a job by its unique ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Job ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Job deleted successfully."
+                    },
+                    "404": {
+                        "description": "Job not found."
+                    },
+                    "401": {
+                        "description": "Unauthorized. Authentication failed."
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "Update a job by ID",
+                "description": "Update a job by its unique ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Job ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Job information for update.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "company": {
+                                        "type": "string",
+                                        "description": "Company name."
+                                    },
+                                    "position": {
+                                        "type": "string",
+                                        "description": "Job position."
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "description": "Job status ('pending', 'declined', 'interview')."
+                                    }
+                                },
+                                "example": {
+                                    "company": "Example Inc.",
+                                    "position": "Software Engineer",
+                                    "status": "pending"
+                                }
+                            }
+                        }
+                    },
+                    "responses": {
+                        "200": {
+                            "description": "Job updated successfully."
+                        },
+                        "400": {
+                            "description": "Bad request. Invalid data or missing values."
+                        },
+                        "404": {
+                            "description": "Job not found."
+                        },
+                        "401": {
+                            "description": "Unauthorized. Authentication failed."
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

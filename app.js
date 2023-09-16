@@ -15,17 +15,23 @@ import jobsRouter from './routes/jobs.js'
 import notFoundMiddleware from './middleware/not-found.js';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 
+// Swagger
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express'
+import swaggerFile from './swagger.json' assert {type: "json"}
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 // extra security packages
 import helmet from 'helmet';
 import { xss } from 'express-xss-sanitizer';
+
 app.set('trust proxy', 1)
 
 app.use(express.json());
 app.use(
   cors({
-    origin: 'https://jobster-guilherme.netlify.app',
+    origin: ['https://temp-jobs-api-ogq6.onrender.com/', "http://localhost:3000"],
     optionsSuccessStatus: 200
   })
 )
