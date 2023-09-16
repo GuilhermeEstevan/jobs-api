@@ -47,20 +47,4 @@ Corpo da Solicitação:
   "email": "john@example.com",
   "password": "password123"
 }
-
-## Registro de Usuário
-
-### POST /api/v1/auth/register
-
-Registra um novo usuário.
-
-Corpo da Solicitação:
-
-```json
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "password123"
-}
-
-
+```
