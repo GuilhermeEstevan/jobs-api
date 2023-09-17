@@ -118,6 +118,7 @@ Esta seção descreve as rotas relacionadas a trabalhos (jobs) disponíveis na A
   "position": "Engenheiro de Software",
   "status": "pendente"
 }
+```
 
 #### Respostas
 
