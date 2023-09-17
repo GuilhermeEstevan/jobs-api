@@ -10,7 +10,7 @@ Esta é a API do backend para o site Jobster. Ela fornece vários pontos de extr
 - [Autenticação](#autenticação)
 - [Registro de Usuário](#registro-de-usuário)
 - [Login de Usuário](#login-de-usuário)
-- [Empregos](#empregos)
+- [Empregos](#Jobs)
   - [Obter Todos os Empregos](#obter-todos-os-empregos)
   - [Criar um Novo Emprego](#criar-um-novo-emprego)
   - [Obter Estatísticas de Empregos](#obter-estatísticas-de-empregos)
