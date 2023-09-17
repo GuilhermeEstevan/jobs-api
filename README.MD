@@ -186,3 +186,13 @@ Esta seção descreve as rotas relacionadas a trabalhos (jobs) disponíveis na A
   "position": "Engenheiro de Software Sênior",
   "status": "entrevista"
 }
+
+
+## Documentação Completa da API
+
+Para obter a documentação completa da API, você pode acessar o Swagger da API do Backend do Jobster [clicando aqui](https://temp-jobs-api-ogq6.onrender.com/docs-api/#/).
+
+Navegue pela documentação para explorar todos os detalhes dos pontos de extremidade da API, parâmetros de solicitação, respostas e exemplos de uso.
+
+Esta documentação é uma referência valiosa para entender como interagir com a API do Backend do Jobster e aproveitar ao máximo seus recursos.
+
