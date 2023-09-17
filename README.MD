@@ -187,6 +187,7 @@ Esta seção descreve as rotas relacionadas a trabalhos (jobs) disponíveis na A
   "status": "entrevista"
 }
 
+```
 
 ## Documentação Completa da API
 
