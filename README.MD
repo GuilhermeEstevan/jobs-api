@@ -169,3 +169,20 @@ Esta seção descreve as rotas relacionadas a trabalhos (jobs) disponíveis na A
 - **401:** Não autorizado. A autenticação falhou.
 
 
+## Atualizar um Emprego por ID
+
+- **Rota:** `PATCH /api/v1/jobs/{id}`
+- **Descrição:** Atualiza um emprego por seu ID exclusivo.
+
+**Parâmetros da Solicitação:**
+
+- `id` (obrigatório): ID do emprego.
+
+**Corpo da Solicitação:**
+
+```json
+{
+  "company": "Exemplo Atualizado S.A.",
+  "position": "Engenheiro de Software Sênior",
+  "status": "entrevista"
+}
