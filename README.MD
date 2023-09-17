@@ -127,4 +127,45 @@ Esta seção descreve as rotas relacionadas a trabalhos (jobs) disponíveis na A
 - **401:** Não autorizado. A autenticação falhou.
 
 
+## Obter Estatísticas de Empregos
+
+- **Rota:** `GET /api/v1/jobs/stats`
+- **Descrição:** Recupera estatísticas sobre postagens de empregos.
+
+#### Respostas
+
+- **200:** Estatísticas de empregos.
+- **401:** Não autorizado. A autenticação falhou.
+
+
+## Obter um Emprego por ID
+
+- **Rota:** `GET /api/v1/jobs/{id}`
+- **Descrição:** Recupera um emprego por seu ID exclusivo.
+
+**Parâmetros da Solicitação:**
+
+- `id` (obrigatório): ID do emprego.
+
+**Respostas:**
+
+- **200:** Detalhes do emprego.
+- **404:** Emprego não encontrado.
+- **401:** Não autorizado. A autenticação falhou.
+
+## Excluir um Emprego por ID
+
+- **Rota:** `DELETE /api/v1/jobs/{id}`
+- **Descrição:** Exclui um emprego por seu ID exclusivo.
+
+**Parâmetros da Solicitação:**
+
+- `id` (obrigatório): ID do emprego.
+
+**Respostas:**
+
+- **200:** Emprego excluído com sucesso.
+- **404:** Emprego não encontrado.
+- **401:** Não autorizado. A autenticação falhou.
+
 
