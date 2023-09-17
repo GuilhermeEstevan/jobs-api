@@ -195,5 +195,4 @@ Para obter a documentação completa da API, você pode acessar o Swagger da API
 
 Navegue pela documentação para explorar todos os detalhes dos pontos de extremidade da API, parâmetros de solicitação, respostas e exemplos de uso.
 
-Esta documentação é uma referência valiosa para entender como interagir com a API do Backend do Jobster e aproveitar ao máximo seus recursos.
 
