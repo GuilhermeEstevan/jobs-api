@@ -119,3 +119,11 @@ Esta seção descreve as rotas relacionadas a trabalhos (jobs) disponíveis na A
   "status": "pendente"
 }
 
+#### Respostas
+
+- **201:** Emprego criado com sucesso.
+- **400:** Solicitação inválida. Dados inválidos ou valores ausentes.
+- **401:** Não autorizado. A autenticação falhou.
+
+
+
