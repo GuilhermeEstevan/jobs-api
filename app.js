@@ -41,6 +41,8 @@ app.use(
   })
 );
 
+app.options('*', cors());
+
 app.use(helmet())
 app.use(xss())
 
