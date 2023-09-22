@@ -35,7 +35,8 @@ app.use(
     origin: [
       'https://temp-jobs-api-ogq6.onrender.com',
       'https://jobster-guilherme.netlify.app',
-      'http://localhost:3000'
+      'http://localhost:3000',
+      'http://localhost:5000'
     ],
     optionsSuccessStatus: 200
   })
@@ -47,6 +48,9 @@ app.use(helmet())
 app.use(xss())
 
 
+app.get('/', (req, res) => {
+  res.send('<h1>Jobs API</h1><a href="/docs-api">Documentation</a>');
+});
 // routes
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/jobs', authenticateUser, jobsRouter)
